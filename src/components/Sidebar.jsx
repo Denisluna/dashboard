@@ -22,7 +22,7 @@ const Sidebar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [])
 
-  useEffect(() => { 
+  useEffect(() => {
     if (screenSize <= 900) setActiveMenu(false);
     else setActiveMenu(true);
   }, [screenSize])
@@ -31,16 +31,16 @@ const Sidebar = () => {
     if (activeMenu && screenSize <= 900) setActiveMenu(false);
   }
 
-  return (
-    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
-      {activeMenu && (<>
+  return activeMenu && (
+    <div className='w-72 max-sm:w-full fixed sidebar dark:bg-secondary-dark-bg bg-white'>
+      <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
         <div className="flex justify-between items-center mt-4 ml-3 mr-3">
           <Link to='/' onClick={handleCloseSideBar} className="flex items-center gap-3 text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <SiShopware /><span>Shoppy</span>
           </Link>
           <TooltipComponent content="Close Menu" position="BottomCenter">
             <button type="button"
-              className="text-xl hover:bg-light-gray rounded-full p-3"
+              className="text-xl hover:bg-light-gray rounded-full p-3 md:hidden"
               onClick={() => setActiveMenu(false)}>
               <IoMdClose />
             </button>
@@ -63,7 +63,7 @@ const Sidebar = () => {
             </div>
           ))}
         </div>
-      </>)}
+      </div>
     </div>
   )
 }

@@ -26,17 +26,7 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
-          {
-            activeMenu ? (
-              <div className='w-72 max-sm:w-full fixed sidebar dark:bg-secondary-dark-bg bg-white'>
-                <Sidebar />
-              </div>
-            ) : (
-              <div className='w-0 dark:bg-secondary-dark-bg'>
-                <Sidebar />
-              </div>
-            )
-          }
+          <Sidebar />
           <div className={
             `dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-1'}`
           }>
@@ -51,7 +41,7 @@ const App = () => {
                 {/* Pages */}
                 <Route path='/orders' element={<Orders />} />
                 <Route path='/employees' element={<Employees />} />
-                <Route path='/costumers' element={<Customers />} />
+                <Route path='/customers' element={<Customers />} />
                 {/* Apps */}
                 <Route path='/kanban' element={<Kanban />} />
                 <Route path='/editor' element={<Editor />} />
