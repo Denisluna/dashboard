@@ -7,10 +7,11 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
 import { Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages';
 
 import './App.css';
+import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
 
-  const [activeMenu, setActiveMenu] = useState(true);
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
@@ -37,7 +38,7 @@ const App = () => {
             )
           }
           <div className={
-            `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-1'}`
+            `dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-1'}`
           }>
             <div className='bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
