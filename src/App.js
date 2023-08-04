@@ -27,12 +27,8 @@ const App = () => {
             </TooltipComponent>
           </div>
           <Sidebar />
-          <div className={
-            `dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-1'}`
-          }>
-            <div className='bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-              <Navbar />
-            </div>
+          <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-1'}`}>
+            <Navbar />
             <div>
               <Routes>
                 {/* Dashboard */}

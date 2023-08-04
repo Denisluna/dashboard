@@ -27,48 +27,48 @@ const Navbar = () => {
 
   const { activeMenu, setActiveMenu, isClicked, handleClick } = useStateContext();
 
-
-
   return (
-    <div className="flex justify-between p-2 md:mx-4 relative">
-      <NavButton
-        title="Menu"
-        customFunction={() => { setActiveMenu((prevState) => !prevState) }}
-        icon={<AiOutlineMenu />}
-        color="blue" />
-      <div className="flex gap-3">
+    <div className='bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+      <div className="flex justify-between p-2 md:mx-4 relative">
         <NavButton
-          title="Cart"
-          customFunction={() => { handleClick('cart') }}
-          icon={<FiShoppingCart />}
+          title="Menu"
+          customFunction={() => { setActiveMenu((prevState) => !prevState) }}
+          icon={<AiOutlineMenu />}
           color="blue" />
-        <NavButton
-          title="Chat"
-          customFunction={() => { handleClick('chat') }}
-          icon={<BsChatLeft />}
-          color="blue" />
-        <NavButton
-          title="Notifications"
-          dotColor="#03D9D7"
-          customFunction={() => { handleClick('notifications') }}
-          icon={<RiNotification3Line />}
-          color="blue" />
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg hover:drop-shadow-xl"
-            onClick={() => { handleClick('profile') }}>
-            <img src={avatar} alt="profile"
-              className="rounded-full h-8 w-8" />
-            <p className="text-gray-400 text-14">
-              <span>Hi, </span><span className="font-bold">Michael</span>
-            </p>
-            <MdKeyboardArrowDown className="text-gray-400 text-14" />
-          </div>
-        </TooltipComponent>
-        {isClicked.cart && (<Cart />)}
-        {isClicked.chat && (<Chat />)}
-        {isClicked.notifications && (<Notification />)}
-        {isClicked.profile && (<UserProfile />)}
+        <div className="flex gap-3">
+          <NavButton
+            title="Cart"
+            customFunction={() => { handleClick('cart') }}
+            icon={<FiShoppingCart />}
+            color="blue" />
+          <NavButton
+            title="Chat"
+            customFunction={() => { handleClick('chat') }}
+            icon={<BsChatLeft />}
+            color="blue" />
+          <NavButton
+            title="Notifications"
+            dotColor="#03D9D7"
+            customFunction={() => { handleClick('notifications') }}
+            icon={<RiNotification3Line />}
+            color="blue" />
+          <TooltipComponent content="Profile" position="BottomCenter">
+            <div
+              className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg hover:drop-shadow-xl"
+              onClick={() => { handleClick('profile') }}>
+              <img src={avatar} alt="profile"
+                className="rounded-full h-8 w-8" />
+              <p className="text-gray-400 text-14">
+                <span>Hi, </span><span className="font-bold">Michael</span>
+              </p>
+              <MdKeyboardArrowDown className="text-gray-400 text-14" />
+            </div>
+          </TooltipComponent>
+          {isClicked.cart && (<Cart />)}
+          {isClicked.chat && (<Chat />)}
+          {isClicked.notifications && (<Notification />)}
+          {isClicked.profile && (<UserProfile />)}
+        </div>
       </div>
     </div>
   )
